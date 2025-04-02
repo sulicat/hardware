@@ -1,0 +1,5 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "ethernet")(type "KiCad")(uri "/home/sulicat/git/hardware/parts_library/symbols/ethernet.kicad_sym")(options "")(descr ""))
+  (lib (name "sulicat")(type "KiCad")(uri "/home/sulicat/git/hardware/parts_library/symbols/sulicat.kicad_sym")(options "")(descr ""))
+)
