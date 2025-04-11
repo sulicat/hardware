@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "USB Power.md",
+                "file": "KeyStick/Planning.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "USB Power"
+              "title": "Planning"
             }
           }
         ],
@@ -185,8 +185,10 @@
   },
   "active": "2bcad753b4577217",
   "lastOpenFiles": [
-    "Components I like.md",
     "USB Power.md",
+    "KeyStick/Planning.md",
+    "KeyStick",
+    "Components I like.md",
     "imgs/Pasted image 20250401230339.png",
     "imgs",
     "Welcome.md",
