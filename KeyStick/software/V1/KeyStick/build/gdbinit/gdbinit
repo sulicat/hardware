@@ -1,0 +1,2 @@
+source /home/sulicat/git/hardware/KeyStick/software/V1/KeyStick/build/gdbinit/symbols
+source /home/sulicat/git/hardware/KeyStick/software/V1/KeyStick/build/gdbinit/connect
