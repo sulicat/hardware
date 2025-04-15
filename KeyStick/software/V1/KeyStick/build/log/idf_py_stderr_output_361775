@@ -1,0 +1,13 @@
+Command: /home/sulicat/.espressif/python_env/idf5.5_py3.10_env/bin/python /home/sulicat/esp/esp-idf/tools/idf_monitor.py -p /dev/ttyACM0 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 /home/sulicat/git/hardware/KeyStick/software/V1/KeyStick/build/KeyStick.elf /home/sulicat/git/hardware/KeyStick/software/V1/KeyStick/build/bootloader/bootloader.elf -m '/home/sulicat/.espressif/python_env/idf5.5_py3.10_env/bin/python' '/home/sulicat/esp/esp-idf/tools/idf.py' '-p' '/dev/ttyACM0'
+[0;33m--- esp-idf-monitor 1.6.2 on /dev/ttyACM0 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0;33m--- 0x40377dea: esp_cpu_wait_for_intr at /home/sulicat/esp/esp-idf/components/esp_hw_support/cpu.c:64
+[0m
+[0;33m--- 0x403c8700: _stext at ??:?
+[0m
+[0;33m--- 0x403c8924: call_start_cpu0 at /home/sulicat/esp/esp-idf/components/bootloader/subproject/main/bootloader_start.c:25
+[0m
+[0;33m--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is de0c3f07b585ef131babea03f6f6756e1b8aee48ad37cd6f87b3e07f24f31578[0m
+[0;33m--- Warning: Writing to serial is timing out. Please make sure that your application supports an interactive console and that you have picked the correct console for serial communication.[0m
+[0;33m--- Warning: Writing to serial is timing out. Please make sure that your application supports an interactive console and that you have picked the correct console for serial communication.[0m
+[0m

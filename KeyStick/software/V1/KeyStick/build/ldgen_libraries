@@ -85,4 +85,6 @@
 /home/sulicat/git/hardware/KeyStick/software/V1/KeyStick/build/esp-idf/touch_element/libtouch_element.a
 /home/sulicat/git/hardware/KeyStick/software/V1/KeyStick/build/esp-idf/usb/libusb.a
 /home/sulicat/git/hardware/KeyStick/software/V1/KeyStick/build/esp-idf/wifi_provisioning/libwifi_provisioning.a
+/home/sulicat/git/hardware/KeyStick/software/V1/KeyStick/build/esp-idf/espressif__tinyusb/libespressif__tinyusb.a
+/home/sulicat/git/hardware/KeyStick/software/V1/KeyStick/build/esp-idf/espressif__esp_tinyusb/libespressif__esp_tinyusb.a
 /home/sulicat/git/hardware/KeyStick/software/V1/KeyStick/build/esp-idf/main/libmain.a
