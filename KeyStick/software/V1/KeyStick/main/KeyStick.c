@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <ctype.h>
 
 #include "sdkconfig.h"
 #include "driver/gpio.h"
@@ -20,6 +21,9 @@ const char *hid_string_descriptor[5] = {
     "123456",                // 3: Serials, should use chip ID
     "Example HID interface", // 4: HID
 };
+
+char *text = "Hark, what spirit storms yon village hidden in the leaves? 'Tis young Naruto, loud of voice and fierce of heart, cursed with the beast of ninefold tail. Though scorned and cast aside, he dreameth bold—to don the robe of Hokage and win love from those who knew him not. With comrades brave—Sasuke, brooding as the night, and Sakura, bloom of spring—he treadeth paths of peril. A fool to some, but aye, a hero in the making, destined to shake the heavens.";
+int text_i = 0;
 
 const uint8_t hid_report_descriptor[] = {
     TUD_HID_REPORT_DESC_KEYBOARD(HID_REPORT_ID(HID_ITF_PROTOCOL_KEYBOARD)),
@@ -45,9 +49,7 @@ void init_usb() {
     tinyusb_driver_install(&tusb_cfg);
 }
 
-
-uint8_t const *tud_hid_descriptor_report_cb(uint8_t instance)
-{
+uint8_t const *tud_hid_descriptor_report_cb(uint8_t instance) {
     // We use only one interface and one HID report descriptor, so we can ignore parameter 'instance'
     return hid_report_descriptor;
 }
@@ -55,13 +57,12 @@ uint8_t const *tud_hid_descriptor_report_cb(uint8_t instance)
 // Invoked when received GET_REPORT control request
 // Application must fill buffer report's content and return its length.
 // Return zero will cause the stack to STALL request
-uint16_t tud_hid_get_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_t report_type, uint8_t* buffer, uint16_t reqlen)
-{
-    (void) instance;
-    (void) report_id;
-    (void) report_type;
-    (void) buffer;
-    (void) reqlen;
+uint16_t tud_hid_get_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_t report_type, uint8_t *buffer, uint16_t reqlen) {
+    (void)instance;
+    (void)report_id;
+    (void)report_type;
+    (void)buffer;
+    (void)reqlen;
 
     return 0;
 }
@@ -71,7 +72,16 @@ void tud_hid_set_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_
 void step_usb() {
     if (tud_mounted()) {
         printf("Sending Keyboard report\n");
-        uint8_t keycode[6] = {HID_KEY_A};
+        char letter = tolower(text[text_i]);
+        int key = (letter - 'a') + 0x04;
+
+        if (text[text_i] == ' ')
+            key = HID_KEY_SPACE;
+
+        text_i += 1;
+        text_i = text_i % 400;
+
+        uint8_t keycode[6] = {key};
         tud_hid_keyboard_report(HID_ITF_PROTOCOL_KEYBOARD, 0, keycode);
         vTaskDelay(pdMS_TO_TICKS(50));
         tud_hid_keyboard_report(HID_ITF_PROTOCOL_KEYBOARD, 0, NULL);

@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "KeyStick",
-    "project_version":    "4eff364-dirty",
+    "project_version":    "0388c57-dirty",
     "project_path":       "/home/sulicat/git/hardware/KeyStick/software/V1/KeyStick",
     "idf_path":           "/home/sulicat/esp/esp-idf",
     "build_dir":          "/home/sulicat/git/hardware/KeyStick/software/V1/KeyStick/build",
