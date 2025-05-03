@@ -2194,7 +2194,7 @@ Discarded input sections
  .text.esp_get_minimum_free_heap_size
                 0x00000000       0x10 esp-idf/esp_system/libesp_system.a(esp_system_chip.c.obj)
  .rodata.esp_get_idf_version.str1.4
-                0x00000000       0x1a esp-idf/esp_system/libesp_system.a(esp_system_chip.c.obj)
+                0x00000000       0x20 esp-idf/esp_system/libesp_system.a(esp_system_chip.c.obj)
  .text.esp_get_idf_version
                 0x00000000        0x8 esp-idf/esp_system/libesp_system.a(esp_system_chip.c.obj)
  .xt.lit        0x00000000       0x28 esp-idf/esp_system/libesp_system.a(esp_system_chip.c.obj)
@@ -12677,6 +12677,8 @@ LOAD esp-idf/spiffs/libspiffs.a
 LOAD esp-idf/touch_element/libtouch_element.a
 LOAD esp-idf/usb/libusb.a
 LOAD esp-idf/wifi_provisioning/libwifi_provisioning.a
+LOAD esp-idf/espressif__tinyusb/libespressif__tinyusb.a
+LOAD esp-idf/espressif__esp_tinyusb/libespressif__esp_tinyusb.a
 LOAD esp-idf/main/libmain.a
 LOAD esp-idf/app_trace/libapp_trace.a
 LOAD esp-idf/app_trace/libapp_trace.a
@@ -12691,20 +12693,22 @@ LOAD esp-idf/esp_lcd/libesp_lcd.a
 LOAD esp-idf/esp_local_ctrl/libesp_local_ctrl.a
 LOAD esp-idf/esp_https_server/libesp_https_server.a
 LOAD esp-idf/espcoredump/libespcoredump.a
-LOAD esp-idf/fatfs/libfatfs.a
-LOAD esp-idf/wear_levelling/libwear_levelling.a
 LOAD esp-idf/mqtt/libmqtt.a
 LOAD esp-idf/nvs_sec_provider/libnvs_sec_provider.a
 LOAD esp-idf/perfmon/libperfmon.a
 LOAD esp-idf/rt/librt.a
 LOAD esp-idf/spiffs/libspiffs.a
 LOAD esp-idf/touch_element/libtouch_element.a
-LOAD esp-idf/usb/libusb.a
 LOAD esp-idf/wifi_provisioning/libwifi_provisioning.a
 LOAD esp-idf/protocomm/libprotocomm.a
 LOAD esp-idf/console/libconsole.a
 LOAD esp-idf/protobuf-c/libprotobuf-c.a
 LOAD esp-idf/json/libjson.a
+LOAD esp-idf/espressif__esp_tinyusb/libespressif__esp_tinyusb.a
+LOAD esp-idf/fatfs/libfatfs.a
+LOAD esp-idf/wear_levelling/libwear_levelling.a
+LOAD esp-idf/usb/libusb.a
+LOAD esp-idf/espressif__tinyusb/libespressif__tinyusb.a
 LOAD esp-idf/xtensa/libxtensa.a
 LOAD esp-idf/esp_driver_gpio/libesp_driver_gpio.a
 LOAD esp-idf/esp_pm/libesp_pm.a

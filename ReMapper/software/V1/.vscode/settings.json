@@ -1,7 +1,0 @@
-{
-    "idf.pythonInstallPath": "/usr/bin/python3",
-    "files.associations": {
-        "tusb.h": "c",
-        "cctype": "c"
-    }
-}

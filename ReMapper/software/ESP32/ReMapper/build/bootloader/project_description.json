@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "bootloader",
-    "project_version":    "v5.5-dev-2916-g1c468f6825",
+    "project_version":    "v5.5-dev-2916-g1c468f6825-dirty",
     "project_path":       "/home/sulicat/esp/esp-idf/components/bootloader/subproject",
     "idf_path":           "/home/sulicat/esp/esp-idf",
     "build_dir":          "/home/sulicat/git/hardware/ReMapper/software/ESP32/ReMapper/build/bootloader",
@@ -11,7 +11,7 @@
     "app_elf":            "bootloader.elf",
     "app_bin":            "bootloader.bin",
     "build_type":         "flash_app",
-    "git_revision":       "v5.5-dev-2916-g1c468f6825",
+    "git_revision":       "v5.5-dev-2916-g1c468f6825-dirty",
     "target":             "esp32s3",
     "rev":                "",
     "min_rev":            "0",
