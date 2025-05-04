@@ -39,7 +39,7 @@ pico_sdk_init()
 add_executable(ReMapper ReMapper.c)
 
 # Link required libraries
-target_link_libraries(ReMapper pico_stdlib)
+target_link_libraries(ReMapper pico_stdlib hardware_spi)
 
 # Enable USB output, UART output, etc. (optional)
 pico_enable_stdio_usb(ReMapper 1)

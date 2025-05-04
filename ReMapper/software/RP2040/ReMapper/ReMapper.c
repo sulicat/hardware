@@ -1,48 +1,59 @@
-/**
- * Copyright (c) 2020 Raspberry Pi (Trading) Ltd.
- *
- * SPDX-License-Identifier: BSD-3-Clause
- */
 
 #include <stdio.h>
 #include "pico/stdlib.h"
 
-#ifndef LED_DELAY_MS
-#define LED_DELAY_MS 250
-#endif
+#include "pico/binary_info.h"
+#include "hardware/spi.h"
 
-#ifndef PICO_DEFAULT_LED_PIN
-#warning blink_simple example requires a board with a regular LED
-#endif
+const int DEBUG_LED_PIN = 25;
+static bool led_toggle = false;
 
-// Initialize the GPIO for the LED
-void pico_led_init(void) {
-#ifdef PICO_DEFAULT_LED_PIN
-    // A device like Pico that uses a GPIO for the LED will define PICO_DEFAULT_LED_PIN
-    // so we can use normal GPIO functionality to turn the led on and off
-    gpio_init(PICO_DEFAULT_LED_PIN);
-    gpio_set_dir(PICO_DEFAULT_LED_PIN, GPIO_OUT);
-#endif
-}
 
-// Turn the LED on or off
-void pico_set_led(bool led_on) {
-#if defined(PICO_DEFAULT_LED_PIN)
-    // Just set the GPIO on or off
-    gpio_put(PICO_DEFAULT_LED_PIN, led_on);
-#endif
+void init_spi() {
+
+    int SPI_RX_PIN = 16;
+    int SPI_TX_PIN = 19;
+    int SPI_SCK_PIN = 18;
+    int SPI_CS_PIN = 17;
+
+    // Enable SPI 0 at 1 MHz and connect to GPIOs
+    spi_init(spi_default, 1000 * 1000);
+    // spi_set_slave(SPI_CONTROLLER, true);
+
+    gpio_set_function(SPI_RX_PIN, GPIO_FUNC_SPI);
+    gpio_set_function(SPI_SCK_PIN, GPIO_FUNC_SPI);
+    gpio_set_function(SPI_TX_PIN, GPIO_FUNC_SPI);
+    gpio_set_function(SPI_CS_PIN, GPIO_FUNC_SPI);
+    
+    // Make the SPI pins available to picotool ???
+    bi_decl(bi_4pins_with_func(PICO_DEFAULT_SPI_RX_PIN, PICO_DEFAULT_SPI_TX_PIN, PICO_DEFAULT_SPI_SCK_PIN, PICO_DEFAULT_SPI_CSN_PIN, GPIO_FUNC_SPI));
 }
 
 int main() {
     stdio_init_all();
 
-    pico_led_init();
-    while (true) {
-        pico_set_led(true);
-        sleep_ms(LED_DELAY_MS);
-        pico_set_led(false);
-        sleep_ms(LED_DELAY_MS);
+    // debug gpio
+    gpio_init(DEBUG_LED_PIN);
+    gpio_set_dir(DEBUG_LED_PIN, GPIO_OUT);
 
+    // spi
+    init_spi();
+
+    char data[255];
+    data[0] = 'a';
+    data[1] = 'b';
+    data[2] = 'c';
+    char response[255];
+
+    while (true) {
+        gpio_put(DEBUG_LED_PIN, led_toggle);
+        led_toggle = !led_toggle;
+        sleep_ms(1000);
         printf("mammmaaa\n");
+
+
+        // int bytes = spi_write_read_blocking(spi_default, data, response, 255);
+        int bytes = spi_write_blocking(spi_default, data, 3);
+        printf("bytes written/read: %d\n", bytes);
     }
 }
