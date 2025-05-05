@@ -12,15 +12,10 @@ spi_inst_t *spi_controller;
 
 void init_spi() {
 
-    // int SPI_RX_PIN = 16;
-    // int SPI_TX_PIN = 19;
-    // int SPI_SCK_PIN = 18;
-    // int SPI_CS_PIN = 17;
-
-    int SPI_RX_PIN = 0;
-    int SPI_TX_PIN = 3;
-    int SPI_SCK_PIN = 2;
-    int SPI_CS_PIN = 1;
+    int SPI_RX_PIN = 16;
+    int SPI_TX_PIN = 19;
+    int SPI_SCK_PIN = 18;
+    int SPI_CS_PIN = 17;
 
     spi_controller = spi0_hw;
 
