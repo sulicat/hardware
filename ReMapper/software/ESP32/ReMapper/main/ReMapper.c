@@ -59,10 +59,10 @@ void spi_master_task(void *args) {
     ESP_ERROR_CHECK(ret);
 
     spi_device_interface_config_t devcfg = {
-        .clock_speed_hz = 1 * 1000 * 1000, // Clock out at 1 MHz
-        .mode = 0,                          // SPI mode 0
-        .spics_io_num = PIN_NUM_CS,         // CS pin
-        .queue_size = 1,                    // We want to be able to queue 7 transactions at a time
+        .clock_speed_hz = 1 * 100 * 1000, // Clock out at 1 MHz
+        .mode = 0,                         // SPI mode 0
+        .spics_io_num = PIN_NUM_CS,        // CS pin
+        .queue_size = 1,                   // We want to be able to queue 7 transactions at a time
     };
 
     ret = spi_bus_add_device(SPI2_HOST,
@@ -82,12 +82,12 @@ void spi_master_task(void *args) {
         .rx_buffer = rx_data,
     };
 
-
     while (1) {
 
         ret = spi_device_transmit(rpi_spi, &t);
         ESP_ERROR_CHECK(ret);
-        printf(" -> SENT\n");
+        printf(" -> SENT, got back: %c %c %c %c\n", rx_data[0], rx_data[1], rx_data[2], rx_data[3]);
+        printf("    Transaction: %d %d\n", t.length, t.rxlength);
 
         vTaskDelay(100 / portTICK_PERIOD_MS);
     }
