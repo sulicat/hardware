@@ -42,8 +42,8 @@ add_executable(ReMapper ReMapper.c)
 target_link_libraries(ReMapper pico_stdlib hardware_spi)
 
 # Enable USB output, UART output, etc. (optional)
-pico_enable_stdio_usb(ReMapper 1)
-pico_enable_stdio_uart(ReMapper 0)
+# pico_enable_stdio_usb(ReMapper 1)
+# pico_enable_stdio_uart(ReMapper 0)
 
 # Create a UF2 file for flashing
 pico_add_extra_outputs(ReMapper)

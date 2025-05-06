@@ -67,7 +67,6 @@ int main() {
         int bytes = spi_write_read_blocking(spi_controller, data, response, 4);
 
         printf("READ: %d bytes  .... %x %x %x %x\n", bytes, response[0], response[1], response[2], response[3]);
-
         sleep_us(10);
 
     }
