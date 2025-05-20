@@ -22,16 +22,16 @@ set(PICO_STDIO_USB_CONNECT_WAIT_TIMEOUT_MS 3000)
 endif()
 
 add_compile_options(-Wall
--Wno-format          # int != int32_t as far as the compiler is concerned because gcc has int32_t as long int
--Wno-unused-function # we have some for the docs that aren't called
-)
+                    -Wno-format          # int != int32_t as far as the compiler is concerned because gcc has int32_t as long int
+                    -Wno-unused-function # we have some for the docs that aren't called
+                    )
+                    
 if (CMAKE_C_COMPILER_ID STREQUAL "GNU")
 add_compile_options(-Wno-maybe-uninitialized)
 endif()
 
 
 # -----------------------------------------------------------------------------
-
 
 # Initialize the SDK
 pico_sdk_init()
@@ -40,7 +40,13 @@ pico_sdk_init()
 add_executable(ReMapper ReMapper.c usb_descriptors.c)
 
 # Link required libraries
-target_link_libraries(ReMapper pico_stdlib hardware_spi pico_unique_id tinyusb_device tinyusb_board)
+target_link_libraries(ReMapper 
+                    pico_stdlib
+                    hardware_spi 
+                    pico_unique_id 
+                    tinyusb_host 
+                    tinyusb_board)
+
 target_include_directories(ReMapper PUBLIC ".")
 
 # Enable USB output, UART output, etc. (optional)

@@ -46,59 +46,43 @@ void step_spi() {
     printf("READ: %d bytes  .... %x %x %x %x\n", bytes, response[0], response[1], response[2], response[3]);
 }
 
-// Invoked when received SET_REPORT control request or
-// received data on OUT endpoint ( Report ID = 0, Type = 0 )
-void tud_hid_set_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_t report_type, uint8_t const *buffer, uint16_t bufsize) {
-    (void)instance;
-
-    if (report_type == HID_REPORT_TYPE_OUTPUT) {
-        // Set keyboard LED e.g Capslock, Numlock etc...
-        if (report_id == REPORT_ID_KEYBOARD) {
-            // bufsize should be (at least) 1
-            if (bufsize < 1) return;
-
-            uint8_t const kbd_leds = buffer[0];
-
-            if (kbd_leds & KEYBOARD_LED_CAPSLOCK) {
-                // Capslock On: disable blink, turn led on
-                board_led_write(true);
-            } else {
-                // Caplocks Off: back to normal blink
-                board_led_write(false);
-            }
-        }
-    }
-
-
-    if (report_type == HID_REPORT_TYPE_INPUT) {
-        printf("GOT IN REPORT\n");
-    }
-
+// Invoked when device with HID interface is mounted
+void tuh_hid_mount_cb(uint8_t dev_addr, uint8_t instance, uint8_t const *desc_report, uint16_t desc_len) {
+    printf("HID device address %d mounted\n", dev_addr);
+    tuh_hid_receive_report(dev_addr, instance); // Start receiving reports
 }
 
-uint16_t tud_hid_get_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_t report_type, uint8_t* buffer, uint16_t reqlen)
-{
-  // TODO not Implemented
-  (void) instance;
-  (void) report_id;
-  (void) report_type;
-  (void) buffer;
-  (void) reqlen;
-
-  return 0;
+// Invoked when device with HID is unmounted
+void tuh_hid_umount_cb(uint8_t dev_addr, uint8_t instance) {
+    printf("HID device address %d unmounted\n", dev_addr);
 }
 
+// Called when a HID report is received
+void tuh_hid_report_received_cb(uint8_t dev_addr, uint8_t instance,
+                                uint8_t const *report, uint16_t len) {
+
+    printf("HID report from device %d, instance %d: ", dev_addr, instance);
+    for (int i = 0; i < len; i++) {
+        printf("%02X ", report[i]);
+    }
+    printf("\n");
+
+    // Continue receiving next report
+    tuh_hid_receive_report(dev_addr, instance);
+}
 
 void init_hid() {
-    tud_init(BOARD_TUD_RHPORT);
+    tusb_init();
 }
 
 void step_hid() {
-    tud_task(); // tinyusb device task
+    tuh_task(); // tinyusb device task
 }
 
 int main() {
     stdio_init_all();
+
+    printf("\n\n Started ReMapper V1\n");
 
     // debug gpio
     gpio_init(DEBUG_LED_PIN);
@@ -112,10 +96,10 @@ int main() {
     init_hid();
 
     while (true) {
-        // gpio_put(DEBUG_LED_PIN, led_toggle);
-        // led_toggle = !led_toggle;
+        gpio_put(DEBUG_LED_PIN, led_toggle);
+        led_toggle = !led_toggle;
 
-        step_spi();
+        // step_spi();
         step_hid();
         sleep_us(10);
     }
