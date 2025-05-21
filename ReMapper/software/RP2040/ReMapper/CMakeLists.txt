@@ -37,7 +37,7 @@ endif()
 pico_sdk_init()
 
 # Create the executable from your main file
-add_executable(ReMapper ReMapper.c usb_descriptors.c)
+add_executable(ReMapper ReMapper.c)
 
 # Link required libraries
 target_link_libraries(ReMapper 
@@ -47,7 +47,7 @@ target_link_libraries(ReMapper
                     tinyusb_host 
                     tinyusb_board)
 
-target_include_directories(ReMapper PUBLIC ".")
+target_include_directories(ReMapper PUBLIC "." "../../SHARED/include")
 
 # Enable USB output, UART output, etc. (optional)
 # pico_enable_stdio_usb(ReMapper 1)

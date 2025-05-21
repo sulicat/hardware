@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
@@ -7,6 +8,11 @@
 #include "sdkconfig.h"
 #include "esp_log.h"
 #include "driver/spi_master.h"
+#include "hid_messages.h"
+
+// Prepare data to send
+uint8_t tx_data[1024] = {0};
+uint8_t rx_data[1024] = {0};
 
 void uart_task(void *args) {
 
@@ -35,6 +41,36 @@ void uart_task(void *args) {
     }
 }
 
+void print_hid_packet(const HID_MESSAGE_PACKET_t *packet) {
+    switch (packet->type) {
+    case DEVICE_CONNECTED:
+        printf("HID Message: DEVICE_CONNECTED\n");
+        printf("  dev_addr: %d\n", packet->message.connected.dev_addr);
+        break;
+
+    case DEVICE_DISCONNECTED:
+        printf("HID Message: DEVICE_DISCONNECTED\n");
+        printf("  dev_addr: %d\n", packet->message.disconnected.dev_addr);
+        break;
+
+    case NEW_REPORT:
+        printf("HID Message: NEW_REPORT\n");
+        printf("  dev_addr : %d\n", packet->message.new_report.dev_addr);
+        printf("  report_id: %d\n", packet->message.new_report.report_id);
+        printf("  length   : %d\n", packet->message.new_report.length);
+        printf("  data     :");
+        for (int i = 0; i < packet->message.new_report.length; i++) {
+            printf(" %02X", packet->message.new_report.data[i]);
+        }
+        printf("\n");
+        break;
+
+    default:
+        printf("HID Message: UNKNOWN TYPE (%d)\n", packet->type);
+        break;
+    }
+}
+
 void spi_master_task(void *args) {
 
     spi_device_handle_t rpi_spi;
@@ -60,9 +96,9 @@ void spi_master_task(void *args) {
 
     spi_device_interface_config_t devcfg = {
         .clock_speed_hz = 1 * 100 * 1000, // Clock out at 1 MHz
-        .mode = 0,                         // SPI mode 0
-        .spics_io_num = PIN_NUM_CS,        // CS pin
-        .queue_size = 1,                   // We want to be able to queue 7 transactions at a time
+        .mode = 0,                        // SPI mode 0
+        .spics_io_num = PIN_NUM_CS,       // CS pin
+        .queue_size = 1,                  // We want to be able to queue 7 transactions at a time
     };
 
     ret = spi_bus_add_device(SPI2_HOST,
@@ -72,22 +108,31 @@ void spi_master_task(void *args) {
 
     printf(" -> DONE WITH SPI INITIALIZATION: spi ptr: %p\n", rpi_spi);
 
-    // Prepare data to send
-    uint8_t tx_data[4] = {0xDE, 0xAD, 0xBE, 0xEF};
-    uint8_t rx_data[4] = {0};
-
     spi_transaction_t t = {
-        .length = 8 * sizeof(tx_data),
+        .length = 8 * sizeof(HID_MESSAGE_PACKET_t),
         .tx_buffer = tx_data,
         .rx_buffer = rx_data,
     };
 
     while (1) {
 
+        memset(rx_data, 0, sizeof(rx_data));
+
         ret = spi_device_transmit(rpi_spi, &t);
         ESP_ERROR_CHECK(ret);
-        printf(" -> SENT, got back: %c %c %c %c\n", rx_data[0], rx_data[1], rx_data[2], rx_data[3]);
-        printf("    Transaction: %d %d\n", t.length, t.rxlength);
+
+        HID_MESSAGE_PACKET_t hid_packet;
+        memcpy(&hid_packet, rx_data, sizeof(HID_MESSAGE_PACKET_t));
+
+        if (hid_packet.sync_word[0] == 'D' && hid_packet.sync_word[1] == 'R' && hid_packet.sync_word[2] == 'E' && hid_packet.sync_word[3] == 'A' && hid_packet.sync_word[4] == 'M') {
+
+            for (int i = 0; i < sizeof(HID_MESSAGE_PACKET_t); i++) {
+                if (i % 16 == 0) printf("\n");
+                printf("%02x ", rx_data[i]);
+            }
+            printf("\n\n");
+            print_hid_packet(&hid_packet);
+        }
 
         vTaskDelay(100 / portTICK_PERIOD_MS);
     }
