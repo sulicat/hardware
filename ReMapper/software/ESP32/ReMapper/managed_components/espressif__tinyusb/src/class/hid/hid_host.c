@@ -355,7 +355,7 @@ bool tuh_hid_receive_ready(uint8_t dev_addr, uint8_t idx) {
   return !usbh_edpt_busy(dev_addr, p_hid->ep_in);
 }
 
-bool tuh_hid_receive_report(uint8_t daddr, uint8_t idx) {
+bool  tuh_hid_receive_report(uint8_t daddr, uint8_t idx) {
   hidh_interface_t* p_hid = get_hid_itf(daddr, idx);
   TU_VERIFY(p_hid);
   hidh_epbuf_t* epbuf = get_hid_epbuf(idx);

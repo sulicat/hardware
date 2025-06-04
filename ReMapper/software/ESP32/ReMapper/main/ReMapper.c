@@ -8,11 +8,27 @@
 #include "sdkconfig.h"
 #include "esp_log.h"
 #include "driver/spi_master.h"
-#include "hid_messages.h"
+
+#include "ReMapper.h"
 
 // Prepare data to send
 uint8_t tx_data[1024] = {0};
 uint8_t rx_data[1024] = {0};
+
+#define NEW_EVENTS_SIZE (30)
+Event_t new_events[NEW_EVENTS_SIZE];
+
+
+
+void print_event(Event_t* event){
+    printf("EVENT\n");
+}
+
+int parse_hid_packet(HID_MESSAGE_PACKET_t* packet, Event_t* events, int max_events){
+    int num_events = 0;
+    print_hid_packet(packet);
+    return num_events;
+}
 
 void uart_task(void *args) {
 
@@ -125,13 +141,16 @@ void spi_master_task(void *args) {
         memcpy(&hid_packet, rx_data, sizeof(HID_MESSAGE_PACKET_t));
 
         if (hid_packet.sync_word[0] == 'D' && hid_packet.sync_word[1] == 'R' && hid_packet.sync_word[2] == 'E' && hid_packet.sync_word[3] == 'A' && hid_packet.sync_word[4] == 'M') {
+            // for (int i = 0; i < sizeof(HID_MESSAGE_PACKET_t); i++) {
+            //     if (i % 16 == 0) printf("\n");
+            //     printf("%02x ", rx_data[i]);
+            // }
+            // printf("\n\n");
+            // print_hid_packet(&hid_packet);
 
-            for (int i = 0; i < sizeof(HID_MESSAGE_PACKET_t); i++) {
-                if (i % 16 == 0) printf("\n");
-                printf("%02x ", rx_data[i]);
-            }
-            printf("\n\n");
-            print_hid_packet(&hid_packet);
+            int num_events = parse_hid_packet(&hid_packet, new_events, NEW_EVENTS_SIZE);
+            for( int i = 0; i < num_events; i++ )
+                print_event(&new_events[i]);
         }
 
         vTaskDelay(100 / portTICK_PERIOD_MS);
@@ -140,12 +159,12 @@ void spi_master_task(void *args) {
 
 void app_main(void) {
 
-    xTaskCreate(uart_task,
-                "uart_task",
-                2048,
-                NULL,
-                10,
-                NULL);
+    // xTaskCreate(uart_task,
+    //             "uart_task",
+    //             2048,
+    //             NULL,
+    //             10,
+    //             NULL);
 
     xTaskCreate(spi_master_task,
                 "spi_master",
