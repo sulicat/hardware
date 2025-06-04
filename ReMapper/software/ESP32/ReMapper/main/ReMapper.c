@@ -15,46 +15,108 @@
 uint8_t tx_data[1024] = {0};
 uint8_t rx_data[1024] = {0};
 
+uint8_t last_report[64];
+
 #define NEW_EVENTS_SIZE (30)
 Event_t new_events[NEW_EVENTS_SIZE];
 
-
-
-void print_event(Event_t* event){
-    printf("EVENT\n");
+void print_event(Event_t *event) {
+    // printf("EVENT: %s %c\n", event->type == EVENT_KEY_RELEASED ? "RELEASED" : "PRESSED", event->ascii);
 }
 
-int parse_hid_packet(HID_MESSAGE_PACKET_t* packet, Event_t* events, int max_events){
-    int num_events = 0;
-    print_hid_packet(packet);
-    return num_events;
+char keycode_from_report(char report_val) {
+    return report_val;
 }
 
-void uart_task(void *args) {
-
-    uart_config_t uart_config = {
-        .baud_rate = 9600,
-        .data_bits = UART_DATA_8_BITS,
-        .parity = UART_PARITY_DISABLE,
-        .stop_bits = UART_STOP_BITS_1,
-        .flow_ctrl = UART_HW_FLOWCTRL_DISABLE,
-        .source_clk = UART_SCLK_DEFAULT,
-    };
-
-    const int UART_NUM = 1; // uart 1 for this
-    uart_driver_install(UART_NUM, 1024 * 2, 0, 0, NULL, 0);
-    uart_param_config(UART_NUM, &uart_config);
-    uart_set_pin(UART_NUM, 17, 18, 20, 21);
-
-    uint8_t data[255];
-    data[0] = 'a';
-    data[1] = 'b';
-    data[2] = 'c';
-
-    while (1) {
-        uart_write_bytes(UART_NUM, (const char *)data, 3);
-        vTaskDelay(100 / portTICK_PERIOD_MS);
+char keycode_to_ascii(uint8_t keycode, bool shift) {
+    // HID usage IDs 0x04 to 0x1D: 'a' to 'z'
+    if (keycode >= 0x04 && keycode <= 0x1D) {
+        return (shift ? 'A' : 'a') + (keycode - 0x04);
     }
+
+    // HID usage IDs 0x1E to 0x27: '1' to '0'
+    if (keycode >= 0x1E && keycode <= 0x27) {
+        const char unshifted[] = "1234567890";
+        const char shifted[] = "!@#$%^&*()";
+        return shift ? shifted[keycode - 0x1E] : unshifted[keycode - 0x1E];
+    }
+
+    // Basic punctuation and space
+    switch (keycode) {
+    case 0x2C:
+        return ' '; // Space
+    case 0x2D:
+        return shift ? '_' : '-';
+    case 0x2E:
+        return shift ? '+' : '=';
+    case 0x2F:
+        return shift ? '{' : '[';
+    case 0x30:
+        return shift ? '}' : ']';
+    case 0x31:
+        return shift ? '|' : '\\';
+    case 0x33:
+        return shift ? ':' : ';';
+    case 0x34:
+        return shift ? '"' : '\'';
+    case 0x35:
+        return shift ? '~' : '`';
+    case 0x36:
+        return shift ? '<' : ',';
+    case 0x37:
+        return shift ? '>' : '.';
+    case 0x38:
+        return shift ? '?' : '/';
+    }
+
+    return 0; // Unknown or non-printable
+}
+
+int parse_hid_packet(HID_MESSAGE_PACKET_t *packet, Event_t *events, int max_events) {
+    int num_events = 0;
+
+    uint8_t *data = packet->message.new_report.data;
+    int data_len = packet->message.new_report.length;
+
+    char modifier = data[0];
+    bool is_l_ctrl = (data[0] >> 0) & 0b1;
+    bool is_l_shift = (data[0] >> 1) & 0b1;
+    bool is_l_alt = (data[0] >> 2) & 0b1;
+    bool is_l_cmd = (data[0] >> 3) & 0b1;
+
+    bool is_r_ctrl = (data[0] >> 4) & 0b1;
+    bool is_r_shift = (data[0] >> 5) & 0b1;
+    bool is_r_alt = (data[0] >> 6) & 0b1;
+    bool is_r_cmd = (data[0] >> 7) & 0b1;
+
+    bool is_shift = is_l_shift || is_r_shift;
+    bool is_ctrl = is_l_ctrl || is_r_ctrl;
+    bool is_alt = is_l_alt || is_r_alt;
+    bool is_cmd = is_l_cmd || is_r_cmd;
+
+    // char reserved = 0;
+
+    for (int i = 2; i < data_len; i++) {
+
+        if (data[i] == 0x00 && last_report[i] != 0x00 && num_events < max_events - 1) {
+            // key released, what was in the last report
+            events[num_events].type = EVENT_KEY_RELEASED;
+            events[num_events].keycode = keycode_from_report(last_report[i]); // from last report
+            events[num_events].ascii = keycode_to_ascii(events[num_events].keycode, is_shift);
+            num_events += 1;
+
+        } else if (data[i] != last_report[i] && last_report[i] == 0x00 && num_events < max_events - 1) {
+            // key pressed
+            events[num_events].type = EVENT_KEY_PRESSED;
+            events[num_events].keycode = keycode_from_report(data[i]); // from data
+            events[num_events].ascii = keycode_to_ascii(events[num_events].keycode, is_shift);
+            num_events += 1;
+        }
+
+        last_report[i] = data[i];
+    }
+
+    return num_events;
 }
 
 void print_hid_packet(const HID_MESSAGE_PACKET_t *packet) {
@@ -149,8 +211,10 @@ void spi_master_task(void *args) {
             // print_hid_packet(&hid_packet);
 
             int num_events = parse_hid_packet(&hid_packet, new_events, NEW_EVENTS_SIZE);
-            for( int i = 0; i < num_events; i++ )
-                print_event(&new_events[i]);
+            for (int i = 0; i < num_events; i++) {
+                if (new_events[i].type == EVENT_KEY_PRESSED)
+                    printf("%c\n", new_events[i].ascii);
+            }
         }
 
         vTaskDelay(100 / portTICK_PERIOD_MS);
@@ -158,14 +222,6 @@ void spi_master_task(void *args) {
 }
 
 void app_main(void) {
-
-    // xTaskCreate(uart_task,
-    //             "uart_task",
-    //             2048,
-    //             NULL,
-    //             10,
-    //             NULL);
-
     xTaskCreate(spi_master_task,
                 "spi_master",
                 20480,
