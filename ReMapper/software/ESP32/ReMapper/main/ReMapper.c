@@ -3,13 +3,13 @@
 
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-#include "driver/uart.h"
 #include "driver/gpio.h"
 #include "sdkconfig.h"
 #include "esp_log.h"
 #include "driver/spi_master.h"
 
 #include "ReMapper.h"
+#include "gamepad_hid.h"
 
 // Prepare data to send
 uint8_t tx_data[1024] = {0};
@@ -222,10 +222,18 @@ void spi_master_task(void *args) {
 }
 
 void app_main(void) {
+
+    gamepad_hid_init();
+
     xTaskCreate(spi_master_task,
                 "spi_master",
                 20480,
                 NULL,
                 10,
                 NULL);
+
+    while(1){
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
+        gamepad_hid_step();
+    }
 }

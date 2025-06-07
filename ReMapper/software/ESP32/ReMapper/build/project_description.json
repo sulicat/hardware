@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "ReMapper",
-    "project_version":    "173c9cf-dirty",
+    "project_version":    "d1ac914-dirty",
     "project_path":       "/home/sulicat/git/hardware/ReMapper/software/ESP32/ReMapper",
     "idf_path":           "/home/sulicat/esp/esp-idf",
     "build_dir":          "/home/sulicat/git/hardware/ReMapper/software/ESP32/ReMapper/build",
@@ -1250,12 +1250,12 @@
             "dir": "/home/sulicat/git/hardware/ReMapper/software/ESP32/ReMapper/main",
             "type": "LIBRARY",
             "lib": "__idf_main",
-            "reqs": [],
+            "reqs": [ "espressif__tinyusb" ],
             "priv_reqs": [ "espressif__esp_tinyusb", "espressif__tinyusb" ],
             "managed_reqs": [],
             "managed_priv_reqs": [ "espressif__esp_tinyusb", "espressif__tinyusb" ],
             "file": "/home/sulicat/git/hardware/ReMapper/software/ESP32/ReMapper/build/esp-idf/main/libmain.a",
-            "sources": [ "/home/sulicat/git/hardware/ReMapper/software/ESP32/ReMapper/main/ReMapper.c" ],
+            "sources": [ "/home/sulicat/git/hardware/ReMapper/software/ESP32/ReMapper/main/ReMapper.c", "/home/sulicat/git/hardware/ReMapper/software/ESP32/ReMapper/main/gamepad_hid.c" ],
             "include_dirs": [ ".", "../../../SHARED/include/" ]
         },
         "mbedtls": {
@@ -2952,7 +2952,7 @@
             "prefix": "idf",
             "dir": "/home/sulicat/git/hardware/ReMapper/software/ESP32/ReMapper/main",
             "lib": "__idf_main",
-            "reqs": [],
+            "reqs": [ "espressif__tinyusb" ],
             "priv_reqs": [ "espressif__esp_tinyusb", "espressif__tinyusb" ],
             "managed_reqs": [],
             "managed_priv_reqs": [ "espressif__esp_tinyusb", "espressif__tinyusb" ],

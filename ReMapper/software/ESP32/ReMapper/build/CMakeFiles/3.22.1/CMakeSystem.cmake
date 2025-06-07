@@ -1,6 +1,6 @@
-set(CMAKE_HOST_SYSTEM "Linux-6.8.0-58-generic")
+set(CMAKE_HOST_SYSTEM "Linux-6.8.0-60-generic")
 set(CMAKE_HOST_SYSTEM_NAME "Linux")
-set(CMAKE_HOST_SYSTEM_VERSION "6.8.0-58-generic")
+set(CMAKE_HOST_SYSTEM_VERSION "6.8.0-60-generic")
 set(CMAKE_HOST_SYSTEM_PROCESSOR "x86_64")
 
 include("/home/sulicat/esp/esp-idf/tools/cmake/toolchain-esp32s3.cmake")
