@@ -26,8 +26,8 @@ void init_spi() {
 
     spi_controller = spi0_hw;
 
-    // Enable SPI 0 at 1 MHz and connect to GPIOs
-    spi_init(spi_controller, 100 * 1000);
+    // Enable SPI 0 at 50 MHz and connect to GPIOs
+    spi_init(spi_controller, 50*100 * 1000);
     spi_set_slave(spi_controller, true);
 
     gpio_set_function(SPI_RX_PIN, GPIO_FUNC_SPI);

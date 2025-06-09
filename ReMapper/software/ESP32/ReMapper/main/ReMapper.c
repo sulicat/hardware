@@ -173,7 +173,7 @@ void spi_master_task(void *args) {
     ESP_ERROR_CHECK(ret);
 
     spi_device_interface_config_t devcfg = {
-        .clock_speed_hz = 1 * 100 * 1000, // Clock out at 1 MHz
+        .clock_speed_hz = 50 * 100 * 1000, // Clock out at 1 MHz
         .mode = 0,                        // SPI mode 0
         .spics_io_num = PIN_NUM_CS,       // CS pin
         .queue_size = 1,                  // We want to be able to queue 7 transactions at a time
@@ -217,7 +217,7 @@ void spi_master_task(void *args) {
             }
         }
 
-        vTaskDelay(100 / portTICK_PERIOD_MS);
+        vTaskDelay(50 / portTICK_PERIOD_MS);
     }
 }
 
