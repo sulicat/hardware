@@ -217,7 +217,7 @@ void spi_master_task(void *args) {
             }
         }
 
-        vTaskDelay(50 / portTICK_PERIOD_MS);
+        vTaskDelay(1 / portTICK_PERIOD_MS);
     }
 }
 

@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "ReMapper",
-    "project_version":    "3a4cd93-dirty",
+    "project_version":    "767b76b-dirty",
     "project_path":       "/home/sulicat/git/hardware/ReMapper/software/ESP32/ReMapper",
     "idf_path":           "/home/sulicat/esp/esp-idf",
     "build_dir":          "/home/sulicat/git/hardware/ReMapper/software/ESP32/ReMapper/build",
