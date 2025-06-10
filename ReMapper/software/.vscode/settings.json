@@ -5,6 +5,7 @@
         "string_view": "c",
         "ranges": "c",
         "gamepad_hid.h": "c",
-        "hid_device.h": "c"
+        "hid_device.h": "c",
+        "remapper.h": "c"
     }
 }

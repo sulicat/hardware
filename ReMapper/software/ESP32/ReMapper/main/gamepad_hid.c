@@ -58,13 +58,18 @@ uint16_t tud_hid_get_report_cb(uint8_t instance, uint8_t report_id, hid_report_t
 void tud_hid_set_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_t report_type, uint8_t const *buffer, uint16_t bufsize) {}
 
 void gamepad_hid_step() {
+
+    static float temp_x = 0;
+    temp_x += 0.1;
+    temp_x = temp_x >= 100 ? 0 : temp_x;
+
     if (tud_mounted()) {
         printf("Sending Gamepad report\n");
 
         gamepad_report_t report = {
             .report_id = REPORT_ID_GAMEPAD,
             .buttons = 0x01, // Button 1 pressed
-            .x = 20,         // Move right
+            .x = temp_x,     // Move right
             .y = 0,
             .rx = 0,
             .ry = 0,

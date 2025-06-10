@@ -13,9 +13,3 @@ typedef struct Event {
     char ascii;
 
 } Event_t;
-
-void print_hid_packet(const HID_MESSAGE_PACKET_t *packet);
-int parse_hid_packet(HID_MESSAGE_PACKET_t *packet, Event_t *events, int max_events);
-void print_event(Event_t *event);
-char keycode_from_report(char report_val);
-char keycode_to_ascii(uint8_t keycode, bool shift);

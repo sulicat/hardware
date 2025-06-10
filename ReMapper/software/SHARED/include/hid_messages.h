@@ -1,5 +1,7 @@
 #pragma once
 
+#include <stdint.h>
+
 enum HID_MESSAGE_TYPE {
     DEVICE_CONNECTED,
     DEVICE_DISCONNECTED,
