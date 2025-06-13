@@ -1,0 +1,5 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "ESP32-S3-WROOM-1-N8R8")(type "KiCad")(uri "/home/sulicat/git/hardware/ReMapper/electrical/footprints/ESP32-S3-WROOM-1-N8R8.kicad_sym")(options "")(descr ""))
+  (lib (name "RP2040")(type "KiCad")(uri "/home/sulicat/git/hardware/ReMapper/electrical/footprints/SC0914_13_.kicad_sym")(options "")(descr ""))
+)
