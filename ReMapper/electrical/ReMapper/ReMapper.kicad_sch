@@ -8855,7 +8855,7 @@
 		)
 		(uuid "94741ef9-0e0d-4963-bf51-935db06687cd")
 	)
-	(label "USB_OUT_D+"
+	(label "USB_IN_D+"
 		(at 208.28 173.99 0)
 		(effects
 			(font
@@ -9085,7 +9085,7 @@
 		)
 		(uuid "e900373a-f1b8-4f42-9e91-30285b597299")
 	)
-	(label "USB_OUT_D-"
+	(label "USB_IN_D-"
 		(at 208.28 176.53 0)
 		(effects
 			(font
@@ -9462,7 +9462,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "11ddc801-e191-47f8-aa65-e036b272446f")
-		(property "Reference" "USB_led"
+		(property "Reference" "USB_led1"
 			(at 335.28 42.2274 90)
 			(effects
 				(font
@@ -9525,7 +9525,7 @@
 		(instances
 			(project "ReMapper"
 				(path "/facd47ac-9f29-4b3c-ae50-ce7a688e305d"
-					(reference "USB_led")
+					(reference "USB_led1")
 					(unit 1)
 				)
 			)
@@ -9679,7 +9679,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1c4943f4-a348-45d3-9f2c-e7727ad38b75")
-		(property "Reference" "USB_IN"
+		(property "Reference" "USB_IN1"
 			(at 206.375 24.13 0)
 			(effects
 				(font
@@ -9731,7 +9731,7 @@
 		(instances
 			(project ""
 				(path "/facd47ac-9f29-4b3c-ae50-ce7a688e305d"
-					(reference "USB_IN")
+					(reference "USB_IN1")
 					(unit 1)
 				)
 			)
@@ -10673,7 +10673,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "38b10aba-feaf-4cc1-a0dc-ec863ac08c81")
-		(property "Reference" "33V_led"
+		(property "Reference" "33V_led1"
 			(at 314.96 42.2274 90)
 			(effects
 				(font
@@ -10736,7 +10736,7 @@
 		(instances
 			(project ""
 				(path "/facd47ac-9f29-4b3c-ae50-ce7a688e305d"
-					(reference "33V_led")
+					(reference "33V_led1")
 					(unit 1)
 				)
 			)
@@ -12907,7 +12907,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ad9b50f0-65ed-4218-94bb-9c8fed108915")
-		(property "Reference" "esp_led"
+		(property "Reference" "esp_led1"
 			(at 386.08 42.2274 90)
 			(effects
 				(font
@@ -12970,7 +12970,7 @@
 		(instances
 			(project "ReMapper"
 				(path "/facd47ac-9f29-4b3c-ae50-ce7a688e305d"
-					(reference "esp_led")
+					(reference "esp_led1")
 					(unit 1)
 				)
 			)
@@ -13053,7 +13053,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "aedc7f4e-2ff3-4903-8404-ab266422d195")
-		(property "Reference" "ESP_QSPI"
+		(property "Reference" "ESP_QSPI1"
 			(at 165.735 24.13 0)
 			(effects
 				(font
@@ -13123,7 +13123,7 @@
 		(instances
 			(project ""
 				(path "/facd47ac-9f29-4b3c-ae50-ce7a688e305d"
-					(reference "ESP_QSPI")
+					(reference "ESP_QSPI1")
 					(unit 1)
 				)
 			)
@@ -13271,7 +13271,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b7610773-57b3-411d-8761-ecede9a9b0d3")
-		(property "Reference" "rp_led"
+		(property "Reference" "rp_led1"
 			(at 363.22 42.2274 90)
 			(effects
 				(font
@@ -13334,7 +13334,7 @@
 		(instances
 			(project "ReMapper"
 				(path "/facd47ac-9f29-4b3c-ae50-ce7a688e305d"
-					(reference "rp_led")
+					(reference "rp_led1")
 					(unit 1)
 				)
 			)
@@ -13815,7 +13815,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d1e607ba-ef0b-44c3-adc1-eba429fc886c")
-		(property "Reference" "USB_OUT"
+		(property "Reference" "USB_OUT1"
 			(at 240.665 24.13 0)
 			(effects
 				(font
@@ -13867,7 +13867,7 @@
 		(instances
 			(project "ReMapper"
 				(path "/facd47ac-9f29-4b3c-ae50-ce7a688e305d"
-					(reference "USB_OUT")
+					(reference "USB_OUT1")
 					(unit 1)
 				)
 			)
@@ -15298,7 +15298,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "fd55ba03-af54-432a-a889-09548fd898d1")
-		(property "Reference" "RP_SWD"
+		(property "Reference" "RP_SWD1"
 			(at 240.665 38.1 0)
 			(effects
 				(font
@@ -15353,7 +15353,7 @@
 		(instances
 			(project ""
 				(path "/facd47ac-9f29-4b3c-ae50-ce7a688e305d"
-					(reference "RP_SWD")
+					(reference "RP_SWD1")
 					(unit 1)
 				)
 			)
