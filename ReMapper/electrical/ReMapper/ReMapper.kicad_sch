@@ -6233,7 +6233,7 @@
 	)
 	(wire
 		(pts
-			(xy 382.27 44.45) (xy 382.27 45.72)
+			(xy 382.27 45.72) (xy 382.27 46.99)
 		)
 		(stroke
 			(width 0)
@@ -6403,7 +6403,7 @@
 	)
 	(wire
 		(pts
-			(xy 382.27 24.13) (xy 382.27 27.94)
+			(xy 382.27 25.4) (xy 382.27 29.21)
 		)
 		(stroke
 			(width 0)
@@ -7623,7 +7623,7 @@
 	)
 	(wire
 		(pts
-			(xy 382.27 35.56) (xy 382.27 36.83)
+			(xy 382.27 36.83) (xy 382.27 38.1)
 		)
 		(stroke
 			(width 0)
@@ -8182,7 +8182,7 @@
 		(uuid "17ada951-c990-4c15-96c7-6956236449ce")
 	)
 	(label "IO8_esp"
-		(at 382.27 24.13 180)
+		(at 382.27 25.4 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8897,7 +8897,7 @@
 				)
 			)
 		)
-		(property "Footprint" "footprints:USBA_Female"
+		(property "Footprint" "Connector_PinHeader_1.00mm:PinHeader_1x04_P1.00mm_Vertical"
 			(at 248.92 76.2 0)
 			(effects
 				(font
@@ -11353,7 +11353,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 382.27 31.75 0)
+		(at 382.27 33.02 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11361,7 +11361,7 @@
 		(dnp no)
 		(uuid "724216b9-0907-48ba-9506-92e654caeb1a")
 		(property "Reference" "R8"
-			(at 384.81 30.4799 0)
+			(at 384.81 31.7499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11370,7 +11370,7 @@
 			)
 		)
 		(property "Value" "400"
-			(at 384.81 33.0199 0)
+			(at 384.81 34.2899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11379,7 +11379,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 380.492 31.75 90)
+			(at 380.492 33.02 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11388,7 +11388,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 382.27 31.75 0)
+			(at 382.27 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11397,7 +11397,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 382.27 31.75 0)
+			(at 382.27 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12463,7 +12463,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 382.27 45.72 0)
+		(at 382.27 46.99 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -12472,7 +12472,7 @@
 		(fields_autoplaced yes)
 		(uuid "aa95c865-7bb8-451b-ae5c-a52ca029f4ac")
 		(property "Reference" "#PWR028"
-			(at 382.27 52.07 0)
+			(at 382.27 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12481,7 +12481,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 382.27 50.8 0)
+			(at 382.27 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12489,7 +12489,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 382.27 45.72 0)
+			(at 382.27 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12498,7 +12498,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 382.27 45.72 0)
+			(at 382.27 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12507,7 +12507,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 382.27 45.72 0)
+			(at 382.27 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12529,7 +12529,7 @@
 	)
 	(symbol
 		(lib_id "Device:LED")
-		(at 382.27 40.64 90)
+		(at 382.27 41.91 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -12538,7 +12538,7 @@
 		(fields_autoplaced yes)
 		(uuid "ad9b50f0-65ed-4218-94bb-9c8fed108915")
 		(property "Reference" "D9"
-			(at 386.08 40.9574 90)
+			(at 386.08 42.2274 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12547,7 +12547,7 @@
 			)
 		)
 		(property "Value" "LED RP5"
-			(at 386.08 43.4974 90)
+			(at 386.08 44.7674 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12556,7 +12556,7 @@
 			)
 		)
 		(property "Footprint" "LED_SMD:LED_0603_1608Metric"
-			(at 382.27 40.64 0)
+			(at 382.27 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12565,7 +12565,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 382.27 40.64 0)
+			(at 382.27 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12574,7 +12574,7 @@
 			)
 		)
 		(property "Description" "Light emitting diode"
-			(at 382.27 40.64 0)
+			(at 382.27 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12583,7 +12583,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
-			(at 382.27 40.64 0)
+			(at 382.27 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
