@@ -175,7 +175,7 @@
 	(net 32 "unconnected-(U1-IO1-Pad39)")
 	(net 33 "unconnected-(U1-IO42-Pad35)")
 	(net 34 "unconnected-(U1-IO36-Pad29)")
-	(net 35 "Net-(33V_led1-A)")
+	(net 35 "Net-(LED1-A)")
 	(net 36 "unconnected-(U1-IO41-Pad34)")
 	(net 37 "unconnected-(U1-IO37-Pad30)")
 	(net 38 "unconnected-(U1-IO18-Pad11)")
@@ -207,20 +207,20 @@
 	(net 64 "unconnected-(U2-GPIO14-Pad17)")
 	(net 65 "unconnected-(U2-GPIO27{slash}ADC1-Pad39)")
 	(net 66 "unconnected-(U2-GPIO25-Pad37)")
-	(net 67 "Net-(esp_led1-A)")
+	(net 67 "Net-(LED2-A)")
 	(net 68 "unconnected-(U2-GPIO20-Pad31)")
 	(net 69 "/QSPI_IO3_rp")
 	(net 70 "Net-(U2-DVDD)")
 	(net 71 "/QSPI_IO2_rp")
 	(net 72 "unconnected-(U2-GPIO23-Pad35)")
-	(net 73 "Net-(USB_led1-A)")
+	(net 73 "Net-(LED3-A)")
 	(net 74 "unconnected-(U2-GPIO3-Pad5)")
 	(net 75 "/SWDIO_rp")
 	(net 76 "/QSPI_IO0_rp")
 	(net 77 "unconnected-(U2-GPIO2-Pad4)")
 	(net 78 "/SWCLK_rp")
 	(net 79 "unconnected-(U2-GPIO1-Pad3)")
-	(net 80 "Net-(rp_led1-A)")
+	(net 80 "Net-(LED4-A)")
 	(net 81 "unconnected-(U2-GPIO7-Pad9)")
 	(net 82 "unconnected-(U2-GPIO26{slash}ADC0-Pad38)")
 	(net 83 "/QSPI_CLK_rp")
@@ -286,6 +286,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "SOD523"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "abe61421-0ef7-4c5c-afd6-ae5713ff74f9")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -557,6 +570,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "C401662"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "fa62012d-3f59-4ffd-8a06-662216a36097")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -933,7 +959,7 @@
 		(sheetname "/")
 		(sheetfile "ReMapper.kicad_sch")
 		(zone_connect 1)
-		(attr exclude_from_pos_files exclude_from_bom allow_soldermask_bridges)
+		(attr exclude_from_pos_files exclude_from_bom dnp allow_soldermask_bridges)
 		(fp_rect
 			(start -0.15 -0.75)
 			(end 0.15 0.75)
@@ -1102,7 +1128,7 @@
 		(path "/1c4943f4-a348-45d3-9f2c-e7727ad38b75")
 		(sheetname "/")
 		(sheetfile "ReMapper.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_bom dnp)
 		(fp_line
 			(start -0.745 1.61)
 			(end -0.41003 1.61)
@@ -1371,6 +1397,19 @@
 				)
 			)
 		)
+		(property "LCSC Part" "C5189830"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b03f6ba8-8385-4268-a9ad-65610a5e7c02")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/b886146e-4096-4b48-b6fc-9a804ed768dd")
 		(sheetname "/")
@@ -1565,6 +1604,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "C6204593"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7af78ce3-1f71-4ea8-ada3-a9cee9d61a36")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -1798,6 +1850,19 @@
 				)
 			)
 		)
+		(property "LCSC Part" "C14675"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a2388f23-46dc-4e63-af9a-65b5191ae981")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/4ae3c2fe-52ea-49db-a49e-ea992ec1ad11")
 		(sheetname "/")
@@ -1971,7 +2036,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://lcsc.com/product-detail/Tactile-Switches_ALPSALPINE-SKRPABE010_C115360.html?s_z=n_SKRPABE010"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -2027,6 +2092,19 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "d7926622-a699-41fb-a2fb-fcc681abe0b9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "C115360"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c8de7c86-d2c9-45d4-9ff0-8cdbd942336c")
 			(effects
 				(font
 					(size 1 1)
@@ -2226,7 +2304,7 @@
 				)
 			)
 		)
-		(property "Value" "400"
+		(property "Value" "500"
 			(at 0 1.43 0)
 			(layer "F.Fab")
 			(uuid "1af9829d-7b17-4296-9b6c-34daad69f2bb")
@@ -2257,6 +2335,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "C860931"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f3144642-0170-438a-a96f-a89110d6bdf0")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -2391,7 +2482,7 @@
 			(size 0.8 0.95)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
-			(net 67 "Net-(esp_led1-A)")
+			(net 80 "Net-(LED4-A)")
 			(pintype "passive")
 			(uuid "534adf9b-7e83-46b4-9baf-229bc8f87995")
 		)
@@ -2462,7 +2553,7 @@
 		(path "/517c3ab2-e185-4e32-b16a-836b73d1e780")
 		(sheetname "/")
 		(sheetfile "ReMapper.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_bom dnp)
 		(fp_line
 			(start -7.35 7.175)
 			(end 7.35 7.175)
@@ -2813,7 +2904,7 @@
 		(at 123.2125 88.373)
 		(descr "LED SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator")
 		(tags "LED")
-		(property "Reference" "USB_led1"
+		(property "Reference" "LED2"
 			(at 0 2 0)
 			(layer "F.SilkS")
 			(hide yes)
@@ -2866,6 +2957,19 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "79666b0a-cd00-4a21-9846-201fef5ecd2b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "C965807"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b6ea7f9c-fbdc-4cb2-9c22-a893d6d28eb3")
 			(effects
 				(font
 					(size 1 1)
@@ -3024,7 +3128,7 @@
 			(size 0.875 0.95)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
-			(net 73 "Net-(USB_led1-A)")
+			(net 67 "Net-(LED2-A)")
 			(pinfunction "A")
 			(pintype "passive")
 			(uuid "75fc6d06-1776-40ce-a0fb-4e801cfc51bf")
@@ -3090,6 +3194,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "C5189821"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "93a76cac-ddb3-4f9e-b6dd-c4f6195ec8ee")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -3291,6 +3408,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "SOD523"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d716c31a-2d1f-44e9-b098-57e4c5fc90f3")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -3566,6 +3696,19 @@
 				)
 			)
 		)
+		(property "LCSC Part" "C5189830"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "85907ed0-bf7f-4255-9f54-ba11a70fd335")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/e3d56825-8d6d-48c0-8d05-d287cd60be53")
 		(sheetname "/")
@@ -3770,7 +3913,7 @@
 		(path "/fd55ba03-af54-432a-a889-09548fd898d1")
 		(sheetname "/")
 		(sheetfile "ReMapper.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_bom dnp)
 		(fp_line
 			(start -0.745 2.61)
 			(end -0.41003 2.61)
@@ -4050,6 +4193,19 @@
 				)
 			)
 		)
+		(property "LCSC Part" "C5189830"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "19b68cb0-24b8-4487-9739-f2fcffec1091")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/93393aa4-ef31-4c36-bb91-45bea87fe88a")
 		(sheetname "/")
@@ -4247,6 +4403,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "SOD523"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e2abaf81-fabe-4370-a9ed-e31eafed6e3e")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -4524,6 +4693,19 @@
 				)
 			)
 		)
+		(property "LCSC Part" "SOD523"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "cf9a1569-1cea-4949-8bf5-6ae34bf88406")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "D*SOD?923*")
 		(path "/1dbba252-0f23-4089-b507-29eab31974af")
 		(sheetname "/")
@@ -4795,6 +4977,19 @@
 				)
 			)
 		)
+		(property "LCSC Part" "C560036"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "83a3d433-a9df-4d29-bba7-8b99a19f9a9f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Choke_* *Coil* Inductor_* L_*")
 		(path "/5ccd3737-7db8-4894-aa5b-b1d331380ae4")
 		(sheetname "/")
@@ -4996,6 +5191,19 @@
 				)
 			)
 		)
+		(property "LCSC Part" "C5189821"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "888ac236-b506-428f-9a5e-04e5bef871e3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/e2a00b33-0033-49a0-a793-dd1abe1d7e5a")
 		(sheetname "/")
@@ -5160,7 +5368,7 @@
 				)
 			)
 		)
-		(property "Value" "800"
+		(property "Value" "500"
 			(at 0 1.43 0)
 			(layer "F.Fab")
 			(uuid "8bdede5d-dcfa-47e9-bcda-aeefe5dfe865")
@@ -5191,6 +5399,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "C860931"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "728052b1-d8b2-4516-8649-f6c1b3aaa47a")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -5325,7 +5546,7 @@
 			(size 0.8 0.95)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
-			(net 73 "Net-(USB_led1-A)")
+			(net 67 "Net-(LED2-A)")
 			(pintype "passive")
 			(uuid "15c99400-215d-4db0-8d95-d93f48641e50")
 		)
@@ -5390,6 +5611,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "C140782"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "846495e3-e213-45b8-8c87-9824a78112f4")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -5589,6 +5823,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "C98220"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "16c31998-940d-4566-883f-e2d3b61d1fac")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -5797,7 +6044,7 @@
 		(path "/d1e607ba-ef0b-44c3-adc1-eba429fc886c")
 		(sheetname "/")
 		(sheetfile "ReMapper.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_bom dnp)
 		(fp_line
 			(start -0.745 -0.735)
 			(end 0 -0.735)
@@ -6031,7 +6278,7 @@
 				)
 			)
 		)
-		(property "Value" "400"
+		(property "Value" "500"
 			(at 0 1.43 0)
 			(layer "F.Fab")
 			(uuid "6fb15708-3768-46b3-a62e-cbb213847fee")
@@ -6062,6 +6309,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "C860931"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ce21a3d3-7881-4a9a-901a-1f3804dd3ac1")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -6196,7 +6456,7 @@
 			(size 0.8 0.95)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
-			(net 35 "Net-(33V_led1-A)")
+			(net 35 "Net-(LED1-A)")
 			(pintype "passive")
 			(uuid "1d44038f-d55c-49df-ab74-2e312faf434b")
 		)
@@ -6261,6 +6521,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "C107037"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ab8bc8bf-5464-4795-8e3d-b746b59c42c4")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -6464,6 +6737,19 @@
 				)
 			)
 		)
+		(property "LCSC Part" "C22548"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "64b93962-9a74-4e4d-ae05-c5b81bd6eea8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/7eef9921-e7b4-436c-8341-e89967407d78")
 		(sheetname "/")
@@ -6617,7 +6903,7 @@
 		(at 128.769 88.5)
 		(descr "LED SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator")
 		(tags "LED")
-		(property "Reference" "rp_led1"
+		(property "Reference" "LED3"
 			(at 0 1.75 0)
 			(layer "F.SilkS")
 			(hide yes)
@@ -6670,6 +6956,19 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "8696058f-1f78-4d12-b7e4-bfb2c62a5e40")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "C965807"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9a135af9-068f-44a9-a814-e1dfe8840496")
 			(effects
 				(font
 					(size 1 1)
@@ -6828,7 +7127,7 @@
 			(size 0.875 0.95)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
-			(net 80 "Net-(rp_led1-A)")
+			(net 73 "Net-(LED3-A)")
 			(pinfunction "A")
 			(pintype "passive")
 			(uuid "0811189f-6d9a-400b-a59c-aa87bec920bd")
@@ -6906,7 +7205,7 @@
 		(sheetname "/")
 		(sheetfile "ReMapper.kicad_sch")
 		(zone_connect 1)
-		(attr exclude_from_pos_files exclude_from_bom allow_soldermask_bridges)
+		(attr exclude_from_pos_files exclude_from_bom dnp allow_soldermask_bridges)
 		(fp_rect
 			(start -0.15 -0.75)
 			(end 0.15 0.75)
@@ -7024,7 +7323,7 @@
 		(at 117.156 88.25)
 		(descr "LED SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator")
 		(tags "LED")
-		(property "Reference" "33V_led1"
+		(property "Reference" "LED1"
 			(at 0.1105 2 0)
 			(layer "F.SilkS")
 			(hide yes)
@@ -7077,6 +7376,19 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "6f3eacde-88fd-4095-a631-961f4fa86147")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "C965807"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "53f3c050-5273-49a5-a81a-c7d3460a045d")
 			(effects
 				(font
 					(size 1 1)
@@ -7235,7 +7547,7 @@
 			(size 0.875 0.95)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
-			(net 35 "Net-(33V_led1-A)")
+			(net 35 "Net-(LED1-A)")
 			(pinfunction "A")
 			(pintype "passive")
 			(uuid "92e9ddcf-1175-4060-b712-e1c8013155af")
@@ -7312,7 +7624,7 @@
 		(sheetname "/")
 		(sheetfile "ReMapper.kicad_sch")
 		(zone_connect 1)
-		(attr exclude_from_pos_files exclude_from_bom allow_soldermask_bridges)
+		(attr exclude_from_pos_files exclude_from_bom dnp allow_soldermask_bridges)
 		(fp_rect
 			(start -0.15 -0.75)
 			(end 0.15 0.75)
@@ -7519,6 +7831,19 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "b8f2c63d-a242-4811-8614-539963f74440")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "C2040"
+			(at 0 0 45)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f13369d2-01b2-4f78-87a2-074d25265bb0")
 			(effects
 				(font
 					(size 1 1)
@@ -8416,6 +8741,19 @@
 				)
 			)
 		)
+		(property "LCSC Part" "C107037"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ec84d7fb-e23c-43ea-82b0-243f7ce73cb9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/2f32becf-cd72-4126-b762-bb4ae0b7c674")
 		(sheetname "/")
@@ -8620,7 +8958,7 @@
 		(path "/aedc7f4e-2ff3-4903-8404-ab266422d195")
 		(sheetname "/")
 		(sheetfile "ReMapper.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_bom dnp)
 		(fp_line
 			(start -0.745 -0.735)
 			(end 0 -0.735)
@@ -8909,7 +9247,7 @@
 		(at 134.2125 88.5)
 		(descr "LED SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator")
 		(tags "LED")
-		(property "Reference" "esp_led1"
+		(property "Reference" "LED4"
 			(at 0 1.75 0)
 			(layer "F.SilkS")
 			(hide yes)
@@ -8962,6 +9300,19 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "4a378412-b54e-418a-b6cb-663056d61e4e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "C965807"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b7a3080b-3057-4db6-a024-6ca5b3b1080f")
 			(effects
 				(font
 					(size 1 1)
@@ -9120,7 +9471,7 @@
 			(size 0.875 0.95)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
-			(net 67 "Net-(esp_led1-A)")
+			(net 80 "Net-(LED4-A)")
 			(pinfunction "A")
 			(pintype "passive")
 			(uuid "4f80c49a-e97c-4177-a893-3025965ad1fc")
@@ -9186,6 +9537,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "C140782"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "79feb334-4949-4711-b24d-f137f4ea5d89")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -9363,7 +9727,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://lcsc.com/product-detail/Tactile-Switches_ALPSALPINE-SKRPABE010_C115360.html?s_z=n_SKRPABE010"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -9419,6 +9783,19 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "51df1437-bb50-4e55-b1fd-bd25c894fa78")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "C115360"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "74b752ad-3bfb-42c3-8022-e9b7f9eb739c")
 			(effects
 				(font
 					(size 1 1)
@@ -9649,6 +10026,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "C48579267"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "35923895-a6ee-4e64-b0be-471f787f20d3")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -10012,6 +10402,19 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "e9f36ec0-06f2-45c4-808f-a298be5e5a60")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "C2913201"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a828f6fb-5588-4b07-af6f-3038fdd63415")
 			(effects
 				(font
 					(size 1 1)
@@ -10733,6 +11136,17 @@
 			)
 		)
 		(embedded_fonts no)
+		(model "/home/sulicat/git/hardware/ReMapper/electrical/3D_models/ESP32-S3-WROOM-1-N8R8.STEP"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -90 -0 -0)
+			)
+		)
 	)
 	(footprint "Package_SON:WSON-8-1EP_8x6mm_P1.27mm_EP3.4x4.3mm"
 		(layer "F.Cu")
@@ -10782,6 +11196,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "C401662"
+			(at 0 0 45)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ab90197d-e420-4c62-83f0-53884d9e8920")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -11157,7 +11584,7 @@
 		(sheetname "/")
 		(sheetfile "ReMapper.kicad_sch")
 		(zone_connect 1)
-		(attr exclude_from_pos_files exclude_from_bom allow_soldermask_bridges)
+		(attr exclude_from_pos_files exclude_from_bom dnp allow_soldermask_bridges)
 		(fp_rect
 			(start -0.15 -0.75)
 			(end 0.15 0.75)
@@ -11326,7 +11753,7 @@
 		(path "/616621bd-0cdf-40b1-a655-f1693f549709")
 		(sheetname "/")
 		(sheetfile "ReMapper.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_bom dnp)
 		(fp_line
 			(start 0.745 0.735)
 			(end 0.745 3.61)
@@ -11617,6 +12044,19 @@
 				)
 			)
 		)
+		(property "LCSC Part" "C14663"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "fb608427-9d52-47be-9720-532bb762911a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/987014fa-e491-419c-a59c-2a65ea98bba4")
 		(sheetname "/")
@@ -11814,6 +12254,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "C82544"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "078d8ab8-56a3-4ded-a5e9-ec1b41316a44")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -12099,6 +12552,19 @@
 				)
 			)
 		)
+		(property "LCSC Part" "C22548"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "bbe9af1c-40f7-4174-bbdf-01c9a3e29960")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/a8cb2487-4548-46c8-bc40-6b3d25a52fca")
 		(sheetname "/")
@@ -12306,7 +12772,7 @@
 		(sheetname "/")
 		(sheetfile "ReMapper.kicad_sch")
 		(zone_connect 1)
-		(attr exclude_from_pos_files exclude_from_bom allow_soldermask_bridges)
+		(attr exclude_from_pos_files exclude_from_bom dnp allow_soldermask_bridges)
 		(fp_rect
 			(start -0.15 -0.75)
 			(end 0.15 0.75)
@@ -12526,6 +12992,19 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "d06576d8-b146-497a-ad7f-6c2465dba7e2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "C3187669"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e500e9f3-0f4e-48b3-a1cf-278eb51a37d7")
 			(effects
 				(font
 					(size 1 1)
@@ -12941,7 +13420,7 @@
 		(path "/01880980-f070-4d44-aac9-a3f439b6596b")
 		(sheetname "/")
 		(sheetfile "ReMapper.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_bom dnp)
 		(fp_line
 			(start -0.745 -0.735)
 			(end 0 -0.735)
@@ -13197,7 +13676,7 @@
 				)
 			)
 		)
-		(property "Value" "400"
+		(property "Value" "500"
 			(at 0 1.43 0)
 			(layer "F.Fab")
 			(uuid "116b25d4-d5f4-4795-9a2a-cfd6dfe7e3db")
@@ -13228,6 +13707,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "C860931"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6a99242b-7b14-48f6-8da0-c7d5b33ef32b")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -13362,7 +13854,7 @@
 			(size 0.8 0.95)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
-			(net 80 "Net-(rp_led1-A)")
+			(net 73 "Net-(LED3-A)")
 			(pintype "passive")
 			(uuid "cf4f4ea5-439a-41ac-a8c4-3d9fdc368e82")
 		)
@@ -13427,6 +13919,19 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part" "C140782"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1ad31dfb-3b99-4a6f-b465-b8b6123322e5")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -13630,6 +14135,19 @@
 				)
 			)
 		)
+		(property "LCSC Part" "C5189821"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f014366e-711c-4d40-a194-842d69e0c461")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/69d6e80b-5e26-480c-83cc-619fe70cb191")
 		(sheetname "/")
@@ -13792,6 +14310,18 @@
 		(at 132.8355 90.75 0)
 		(layer "F.SilkS")
 		(uuid "14afcc90-28e1-473d-842d-c004310ceac3")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "ReMapper V1 - Test Batch"
+		(at 160.75 122.7 0)
+		(layer "F.SilkS")
+		(uuid "23fd247f-5fca-4f6d-a245-20d7e75afd7a")
 		(effects
 			(font
 				(size 1 1)
@@ -17897,20 +18427,20 @@
 		(uuid "922c9240-1361-4bf0-a0f4-692f84a5b233")
 	)
 	(segment
-		(start 135.029 85.877)
-		(end 135.029 88.471)
+		(start 124 85.848)
+		(end 123.902 85.75)
 		(width 0.12)
 		(layer "F.Cu")
 		(net 67)
-		(uuid "19ee8e77-ce19-4b38-a855-7ad6047e541d")
+		(uuid "205f21c0-a42d-4f9c-b4e1-144974657e4a")
 	)
 	(segment
-		(start 135.029 88.471)
-		(end 135 88.5)
+		(start 124 88.373)
+		(end 124 85.848)
 		(width 0.12)
 		(layer "F.Cu")
 		(net 67)
-		(uuid "a9dd1942-b8c9-485c-86b3-630658d11556")
+		(uuid "83079f84-f844-4709-a470-3834ef78e4a0")
 	)
 	(segment
 		(start 108.124149 84.490238)
@@ -18121,20 +18651,20 @@
 		(uuid "f5f406b6-1eca-4a0d-9ac1-cbc6d18ea749")
 	)
 	(segment
-		(start 124 85.848)
-		(end 123.902 85.75)
+		(start 129.56 88.4965)
+		(end 129.5565 88.5)
 		(width 0.12)
 		(layer "F.Cu")
 		(net 73)
-		(uuid "205f21c0-a42d-4f9c-b4e1-144974657e4a")
+		(uuid "92b8e862-11f1-4478-b9a0-99410ca1a7d6")
 	)
 	(segment
-		(start 124 88.373)
-		(end 124 85.848)
+		(start 129.56 85.877)
+		(end 129.56 88.4965)
 		(width 0.12)
 		(layer "F.Cu")
 		(net 73)
-		(uuid "83079f84-f844-4709-a470-3834ef78e4a0")
+		(uuid "c67c9514-72f9-48b1-a38f-3c234dc0dfb4")
 	)
 	(segment
 		(start 127.27 101.9556)
@@ -18217,20 +18747,20 @@
 		(uuid "f0ee4219-638a-4281-991f-a9ae31c54f3a")
 	)
 	(segment
-		(start 129.56 88.4965)
-		(end 129.5565 88.5)
+		(start 135.029 85.877)
+		(end 135.029 88.471)
 		(width 0.12)
 		(layer "F.Cu")
 		(net 80)
-		(uuid "92b8e862-11f1-4478-b9a0-99410ca1a7d6")
+		(uuid "19ee8e77-ce19-4b38-a855-7ad6047e541d")
 	)
 	(segment
-		(start 129.56 85.877)
-		(end 129.56 88.4965)
+		(start 135.029 88.471)
+		(end 135 88.5)
 		(width 0.12)
 		(layer "F.Cu")
 		(net 80)
-		(uuid "c67c9514-72f9-48b1-a38f-3c234dc0dfb4")
+		(uuid "a9dd1942-b8c9-485c-86b3-630658d11556")
 	)
 	(segment
 		(start 108.568212 85.388263)
