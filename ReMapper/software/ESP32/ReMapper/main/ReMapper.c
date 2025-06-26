@@ -11,6 +11,7 @@
 #include "ReMapper.h"
 #include "gamepad_hid.h"
 #include "hid_parsing.h"
+#include "driver/gpio.h"
 
 // Prepare data to send
 uint8_t tx_data[1024] = {0};
@@ -114,7 +115,13 @@ void app_main(void) {
                 10,
                 NULL);
 
+    gpio_reset_pin(8);
+    gpio_set_direction(8, GPIO_MODE_OUTPUT);
+    int blink_val = 0;
+    
     while (1) {
         vTaskDelay(1000 / portTICK_PERIOD_MS);
+        gpio_set_level(8, blink_val);
+        blink_val = !blink_val;
     }
 }
