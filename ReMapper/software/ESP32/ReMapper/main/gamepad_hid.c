@@ -38,7 +38,10 @@ void gamepad_hid_init() {
         .configuration_descriptor = hid_configuration_descriptor,
     };
 
-    tinyusb_driver_install(&tusb_cfg);
+
+    int stat = tinyusb_driver_install(&tusb_cfg);
+
+    printf("Install Gamepad HID driver status: %d\n", stat);
 }
 
 uint8_t const *tud_hid_descriptor_report_cb(uint8_t instance) {
@@ -63,6 +66,7 @@ void gamepad_hid_step() {
     temp_x += 0.1;
     temp_x = temp_x >= 100 ? 0 : temp_x;
 
+
     if (tud_mounted()) {
         printf("Sending Gamepad report\n");
 
@@ -77,7 +81,7 @@ void gamepad_hid_step() {
         };
 
         tud_hid_report(REPORT_ID_GAMEPAD, &report, sizeof(report));
-        vTaskDelay(pdMS_TO_TICKS(50));
+        vTaskDelay(pdMS_TO_TICKS(100));
 
         // Release all
         memset(&report, 0, sizeof(report));

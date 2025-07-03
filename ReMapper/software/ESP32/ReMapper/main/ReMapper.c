@@ -82,7 +82,7 @@ void spi_master_task(void *args) {
             int num_events = parse_hid_packet(&hid_packet, new_events, NEW_EVENTS_SIZE);
             for (int i = 0; i < num_events; i++) {
                 if (new_events[i].type == EVENT_KEY_PRESSED)
-                    printf("%c\n", new_events[i].ascii);
+                    printf("Key Press: %c\n", new_events[i].ascii);
             }
         }
 

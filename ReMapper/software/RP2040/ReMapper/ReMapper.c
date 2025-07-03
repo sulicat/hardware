@@ -10,7 +10,7 @@
 
 #include "hid_messages.h"
 
-const int DEBUG_LED_PIN = 25;
+const int DEBUG_LED_PIN = 5;
 static bool led_toggle = false;
 
 spi_inst_t *spi_controller;
