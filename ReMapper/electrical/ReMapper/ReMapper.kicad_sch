@@ -6608,16 +6608,6 @@
 	)
 	(wire
 		(pts
-			(xy 245.11 29.21) (xy 251.46 29.21)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4e503286-4922-42a7-bb69-626ffe83bf91")
-	)
-	(wire
-		(pts
 			(xy 313.69 187.96) (xy 318.77 187.96)
 		)
 		(stroke
@@ -7858,16 +7848,6 @@
 	)
 	(wire
 		(pts
-			(xy 245.11 31.75) (xy 251.46 31.75)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f25ce208-735c-43cd-8688-bab62c9f8d98")
-	)
-	(wire
-		(pts
 			(xy 207.01 184.15) (xy 204.47 184.15)
 		)
 		(stroke
@@ -8195,26 +8175,6 @@
 			(justify left bottom)
 		)
 		(uuid "36edd7f0-a8a5-4192-b0a0-91acbc759103")
-	)
-	(label "USB_OUT_D+"
-		(at 251.46 29.21 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "49a9edac-44c0-4f58-8b5c-277296c62218")
-	)
-	(label "USB_OUT_D-"
-		(at 251.46 31.75 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "4a3c6448-377d-403c-be4c-8241ce4a7dc4")
 	)
 	(label "USB_VIN"
 		(at 41.91 246.38 180)
@@ -13815,83 +13775,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:Conn_01x02_Pin")
-		(at 240.03 29.21 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(dnp yes)
-		(fields_autoplaced yes)
-		(uuid "d1e607ba-ef0b-44c3-adc1-eba429fc886c")
-		(property "Reference" "USB_OUT1"
-			(at 240.665 24.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "USB_OUT_Debug"
-			(at 240.665 26.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
-			(at 240.03 29.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 240.03 29.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x02, script generated"
-			(at 240.03 29.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "SNAPEDA_PACKAGE_ID" ""
-			(at 240.03 29.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "72d54d13-9ab2-4909-9e9c-16c05b2a90ce")
-		)
-		(pin "2"
-			(uuid "d0ac703b-76b9-4bc6-a2b3-fb57489aa2df")
-		)
-		(instances
-			(project "ReMapper"
-				(path "/facd47ac-9f29-4b3c-ae50-ce7a688e305d"
-					(reference "USB_OUT1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 215.9 49.53 0)
 		(unit 1)
@@ -14181,7 +14064,7 @@
 				)
 			)
 		)
-		(property "Footprint" "footprints:XCVR_ESP32S3WROOM1N8R8"
+		(property "Footprint" "RF_Module:ESP32-S3-WROOM-1"
 			(at 87.63 59.69 0)
 			(effects
 				(font
