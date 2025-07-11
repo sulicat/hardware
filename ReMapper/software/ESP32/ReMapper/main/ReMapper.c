@@ -7,11 +7,12 @@
 #include "sdkconfig.h"
 #include "esp_log.h"
 #include "driver/spi_master.h"
+#include "driver/gpio.h"
 
 #include "ReMapper.h"
 #include "gamepad_hid.h"
 #include "hid_parsing.h"
-#include "driver/gpio.h"
+#include "webserver.h"
 
 // Prepare data to send
 uint8_t tx_data[1024] = {0};
@@ -99,6 +100,16 @@ void gamepad_task(void *args) {
     }
 }
 
+void webhost_task(void *args) {
+    webserver_init();
+
+    while (1) {
+        vTaskDelay(1 / portTICK_PERIOD_MS);
+        webserver_step();
+    }
+}
+
+
 void app_main(void) {
 
     xTaskCreate(spi_master_task,
@@ -106,6 +117,13 @@ void app_main(void) {
                 20480,
                 NULL,
                 10,
+                NULL);
+
+    xTaskCreate(webhost_task,
+                "webhost",
+                20480,
+                NULL,
+                5,
                 NULL);
 
     xTaskCreate(gamepad_task,

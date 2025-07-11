@@ -6,6 +6,7 @@
         "ranges": "c",
         "gamepad_hid.h": "c",
         "hid_device.h": "c",
-        "remapper.h": "c"
+        "remapper.h": "c",
+        "webserver.h": "c"
     }
 }

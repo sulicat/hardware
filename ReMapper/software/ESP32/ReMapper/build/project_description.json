@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "ReMapper",
-    "project_version":    "V1-FAB-1-gdf28846-dirty",
+    "project_version":    "V1-FAB-8-gaccad3f-dirty",
     "project_path":       "/home/sulicat/git/hardware/ReMapper/software/ESP32/ReMapper",
     "idf_path":           "/home/sulicat/esp/esp-idf",
     "build_dir":          "/home/sulicat/git/hardware/ReMapper/software/ESP32/ReMapper/build",
@@ -1250,12 +1250,12 @@
             "dir": "/home/sulicat/git/hardware/ReMapper/software/ESP32/ReMapper/main",
             "type": "LIBRARY",
             "lib": "__idf_main",
-            "reqs": [ "espressif__tinyusb" ],
+            "reqs": [ "espressif__tinyusb", "esp_wifi", "nvs_flash", "esp-tls", "esp_netif", "esp_http_server" ],
             "priv_reqs": [ "espressif__esp_tinyusb", "espressif__tinyusb" ],
             "managed_reqs": [],
             "managed_priv_reqs": [ "espressif__esp_tinyusb", "espressif__tinyusb" ],
             "file": "/home/sulicat/git/hardware/ReMapper/software/ESP32/ReMapper/build/esp-idf/main/libmain.a",
-            "sources": [ "/home/sulicat/git/hardware/ReMapper/software/ESP32/ReMapper/main/ReMapper.c", "/home/sulicat/git/hardware/ReMapper/software/ESP32/ReMapper/main/gamepad_hid.c", "/home/sulicat/git/hardware/ReMapper/software/ESP32/ReMapper/main/hid_parsing.c" ],
+            "sources": [ "/home/sulicat/git/hardware/ReMapper/software/ESP32/ReMapper/main/ReMapper.c", "/home/sulicat/git/hardware/ReMapper/software/ESP32/ReMapper/main/gamepad_hid.c", "/home/sulicat/git/hardware/ReMapper/software/ESP32/ReMapper/main/hid_parsing.c", "/home/sulicat/git/hardware/ReMapper/software/ESP32/ReMapper/main/webserver.c" ],
             "include_dirs": [ ".", "../../../SHARED/include/" ]
         },
         "mbedtls": {
@@ -2952,7 +2952,7 @@
             "prefix": "idf",
             "dir": "/home/sulicat/git/hardware/ReMapper/software/ESP32/ReMapper/main",
             "lib": "__idf_main",
-            "reqs": [ "espressif__tinyusb" ],
+            "reqs": [ "espressif__tinyusb", "esp_wifi", "nvs_flash", "esp-tls", "esp_netif", "esp_http_server" ],
             "priv_reqs": [ "espressif__esp_tinyusb", "espressif__tinyusb" ],
             "managed_reqs": [],
             "managed_priv_reqs": [ "espressif__esp_tinyusb", "espressif__tinyusb" ],
